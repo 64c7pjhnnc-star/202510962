@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // 1. A number is already chosen in the program
+    int chosenNumber = 7; 
+    int userInput;
+    
+    // 2. An empty array (vector) to keep all numbers entered
+    vector<int> attempts; 
+
+    cout << "Welcome to the Guessing Game!" << endl;
+
+    // 3. While loop that continues as long as the guess is not equal to chosen number
+    while (userInput != chosenNumber) {
+        cout << "Enter a number: ";
+        cin >> userInput;
+        
+        // 4. Immediately save the value into the array
+        attempts.push_back(userInput);
+
+        // 5. Compare the user's guess with the chosen number
+        if (userInput > chosenNumber) {
+            cout << "Too high" << endl;
+        } else if (userInput < chosenNumber) {
+            cout << "Too low" << endl;
+        } else {
+            cout << "Correct" << endl;
+        }
+    }
+
+    // 6. Use a for loop to display all guesses stored in the array
+    cout << "\nAll your guesses one by one:" << endl;
+    for (int i = 0; i < attempts.size(); i++) {
+        cout << attempts[i] << endl;
+    }
+
+    return 0;
+}
